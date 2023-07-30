@@ -1,0 +1,73 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'Navigation.html' %}
+
+<style>tr{text-align:center}
+
+    marquee{
+    background-color:maroon;
+    color:white;
+    font-size:20px;
+    margin-top:5px;
+    }
+</style>
+<hr style="background-color:maroon;color:white;font-size:20px;margin-top:5px;">
+<marquee behavior="" direction="">Latest Job List ( Login to Apply )</marquee>
+<hr>
+
+
+<div class="container">
+    <div>
+        <h2 style="text-align:center;">LATEST AVAILABLE JOBS</h2>
+    </div>
+
+    <hr>
+
+    <table class="table table-light table-hover" id="example">
+    <thead>
+    <tr>
+        <th>S.No.</th>
+        <th>Job Title</th>
+
+        <th>Company Logo</th>
+        <th>Company Name</th>
+        <th>Creation Date</th>
+<!--        <th>Description</th>-->
+<!--        <th>Logo</th>-->
+<!--        <th>Status</th>-->
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.title}}</td>
+
+<!--        <td>{{i.image}}</td>-->
+        <td><img src="{{i.image.url}}" width="40" height="40"/></td>
+        <td>{{i.company}}</td>
+        <td>{{i.creationdate}}</td>
+<!--        <td>{{i.description}}</td>-->
+
+        <td>
+            <a href="{% url 'userLogin' %}" class="btn btn-success btn-sm">Apply</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+     <div>
+        <h4 style="text-align:center;">End of the list</h4>
+    </div>
+</div>
+
+
+
+
+{% include 'footer.html' %}
+
+{% endblock %}

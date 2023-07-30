@@ -1,0 +1,60 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'adminNavigation.html' %}
+
+<hr style="background-color:maroon;color:white;font-size:20px;margin-top:5px;">
+<marquee behavior="" direction="">Pending Recruiter Requests</marquee>
+<hr>
+
+
+<div class="container">
+    <div>
+        <h2 style="text-align:center;">Pending Recruiter Request(s)</h2>
+    </div>
+
+    <hr>
+
+    <table class="table table-light table-hover" id="example">
+    <thead>
+    <tr>
+        <th>S.No.</th>
+        <th>Full Name</th>
+        <th>Email ID</th>
+        <th>Contact Numbers</th>
+        <th>Gender</th>
+        <th>Company</th>
+        <th>Logo</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+        <td>{{i.user.username}}</td>
+        <td>{{i.mobileNo}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.company}}</td>
+        <td><img src="{{i.profileImage.url}}" style="width:40px;height:40px;border-radius:50%;"></td>
+        <td>{{i.status}}</td>
+        <td><a href="{% url 'changeStatus' i.id %}" class="btn btn-success btn-sm">Change Status</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+     <div>
+        <h4 style="text-align:center;">End of the list</h4>
+    </div>
+</div>
+
+
+
+
+{% include 'footer.html' %}
+
+{% endblock %}

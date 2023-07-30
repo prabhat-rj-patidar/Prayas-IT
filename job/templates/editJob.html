@@ -1,0 +1,99 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'recruiterNavigation.html' %}
+
+<link rel="stylesheet" href="{% static 'login.css' %}" xmlns="http://www.w3.org/1999/html">
+<style>
+    img{border-radius:50%; border: 2px solid #000;}
+</style>
+
+<marquee behavior="" direction="">Edit Job Details </marquee>
+
+<hr>
+
+<form action="" name="signup"  class="container mt-5" method="post" enctype="multipart/form-data" style="padding-bottom:25px;">
+
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="form-group col-md-12">
+            <lable>Job Title</lable>
+            <input type="text" class="form-control" name="jobTitle" value="{{job.title}}">
+        </div>
+
+    </div>
+    <p></p>
+
+
+    <div class="row">
+
+
+        <div class="form-group col-md-9">
+            <lable>Company Name (Required)</lable>
+            <input type="text" class="form-control" name="companyName" value="{{job.company}}">
+        </div>
+
+        <div class="form-group col-md-3">
+            <lable>Company Logo</lable>
+            <br>
+            <img src="{{job.image.url}}" width="50" height="50">
+        </div>
+
+    </div>
+    <p></p>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <lable>Salary</lable>
+            <input type="text" class="form-control" name="salary"  value="{{job.salary}}">
+        </div>
+
+         <div class="form-group col-md-6">
+            <lable>Location</lable>
+            <input type="text" class="form-control" name="location" value="{{job.location}}">
+        </div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="form-group col-md-12">
+            <lable>Description</lable>
+            <textarea class="form-control" name="description" >{{job.description}} </textarea>
+        </div>
+    </div>
+    
+<!--    <p></p>-->
+
+<!--    <div class="row">-->
+<!--        <div class="form-group col-md-12">-->
+<!--            <lable>Job URL </lable>-->
+<!--            <input type="url" class="form-control" name="jobURL" value="{{job.joburl}}">-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <p></p>
+
+    <p></p>
+    <input type="submit" value="Submit" class="btn btn-primary" style="width:200px;" >
+    <input type="button" value="Back to Job List" onclick="history.back()" class="btn btn-primary">
+</form>
+
+
+{% include 'footer.html' %}
+
+{% if error == "no" %}
+<script>
+    alert("Job has been updated successfully !!");
+    window.location = ('{% url 'editJob' job.id %}')
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Something went wrong !!!, Please Try Again.");
+</script>
+{% endif %}
+
+{% endblock %}

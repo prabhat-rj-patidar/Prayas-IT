@@ -1,0 +1,62 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'recruiterNavigation.html' %}
+
+<style>tr{text-align:center}</style>
+<hr style="background-color:maroon;color:white;font-size:20px;margin-top:5px;">
+<marquee behavior="" direction="">All Job Posted By Logged-in Recruiter</marquee>
+<hr>
+
+
+<div class="container">
+    <div>
+        <h2 style="text-align:center;">Manage Posted Jobs Here</h2>
+    </div>
+
+    <hr>
+
+    <table class="table table-light table-hover" id="example">
+    <thead>
+    <tr>
+        <th>S.No.</th>
+        <th>Job Title</th>
+        <th>Creation Date</th>
+        <th>Company Name</th>
+<!--        <th>Gender</th>-->
+<!--        <th>Company</th>-->
+<!--        <th>Logo</th>-->
+<!--        <th>Status</th>-->
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for i in job %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.creationdate}}</td>
+        <td>{{i.company}}</td>
+
+        <td>
+            <a href="{% url 'editJob' i.id %}" class="btn btn-success btn-sm">Edit</a>
+            |
+            <a href="{% url 'deleteJob' i.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Do you really want to permanently delete this Job ? \n (There will be no going back after clicking OK !!')">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+     <div>
+        <h4 style="text-align:center;">End of the list</h4>
+    </div>
+</div>
+
+
+
+
+{% include 'footer.html' %}
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'footer.css'%}">
+
+<div style="background-color:maroon; width:100%; height:auto;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-3" >
+                <h3 class="text-white" style="text-align:left; margin-bottom:20px;"><b>Contact Information</b></h3>
+
+                <p style="color:white; font-size:18px;"><i class="fa-solid fa-location-dot"></i> Institute of Computer Science,
+                    <br>Vikram University Ujjain<br> Dewas Road, Ujjain<br> Madhya Pradesh- 456010</p>
+                <p style="color:white; font-size:18px;"><i class="fa-solid fa-phone-volume"></i> Phone: +91 7342511475</p>
+                <p style="color:white; font-size:18px;"><i class="fa-sharp fa-solid fa-envelope"></i> Email: icsvikram2020@gmail.com </p>
+            </div>
+
+            <div class="col-md-4 mt-3">
+                <h3 class="text-white" id="placement" style="text-align:left; margin-bottom:20px;"><b>About - Prayas IT </b></h3>
+                <p style="color:white; font-size:18px;text-align:justify;width:90%;">Prayas IT is a job portal, dedicated to connecting aspiring individuals with exciting career opportunities in the IT industry.
+                    <br>At Prayas IT, we understand the unique needs of computer science fresher, graduates, experienced professionals, seeking fulfilling roles in this dynamic field. to provide a user-friendly interface that streamlines the job search and apply process.</p>
+            </div>
+
+            <div class="col-md-4 mt-3" id="newsletter">
+                <h3 class="text-white" style="text-align:left; margin-bottom:20px;"><b>Newsletter</b></h3>
+                <p style="color:white; font-size:18px;text-align:left;">Want extra Info ?? <br> Dropdown your e-mail here..</p>
+
+                <form action="" method="post" class="row row-cols-lg-auto g-2" style="justify-content:left;">
+                    {% csrf_token %}
+                    <div class="col">
+                    <input type="email" name="E-Mail ID:" placeholder="Your E-mail.." required class="form-control">
+                    </div>
+                    <div class="col">
+                    <input type="submit" value="Send" class="btn btn-primary" id="footerBtn">
+                    </div>
+                </form>
+
+                <div class="text-left">
+                    <br>
+                    <br>
+                    <h3 class="text-white" style="text-align:left; margin-bottom:20px;"><b>Total Visitors</b></h3>
+                    <a href="https://www.linkedin.com/in/prabhatrjpatidar/" target="_blank">
+                    <img style="width:150px" src="https://hitwebcounter.com/counter/counter.php?page=8643066&style=0006&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="Visior counter"   border="1" /></a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <hr>
+    <div style="padding-bottom:10px;"><p style="color:white; font-size:18px;text-align:center;">
+        &#169 2023 Developed By: <b><a href="https://prabhatrj.netlify.app/" style="color:white;" target="_blank">Prabhat Patidar</a></b>
+        MCA 4th Semester ( ICSVVU Vikram University Ujjain ).</p></div>
+
+
+</div>

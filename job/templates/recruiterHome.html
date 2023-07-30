@@ -1,0 +1,65 @@
+{% load static %}
+
+
+{% block body %}
+<style>
+.mydiv{
+  height: 100px;
+  width: auto;
+  border-radius: 8px;
+  padding-top:20px;
+}
+.mydiv:hover{
+color:white;
+background-color: maroon;
+}
+</style>
+
+{% include 'recruiterNavigation.html' %}
+
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-1">
+<!--          Column-->
+        </div>
+        <div class="col-4">
+          <img src="{% static 'images/work.jpg'%}" alt="image" style="height:auto;">
+            <p>
+                &nbsp;
+            </p>
+            <h3 class="text-center">Total Registered Users</h3>
+
+            <div>
+                <div class="mydiv">
+                <h5 class="text-center"><i class="fa-solid fa-users"></i> Total Users</h5>
+                <p class="text-center font-weight-bold" >{{scount}}</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-6" style="text-align:justify;font-size:20px">
+
+            <span><h3>Hey !! {{request.user.first_name}},</h3></span>
+            <p></p>
+            <p>As the Admin of our "Prayas IT" Job Portal, I wanted to extend my warm
+            greetings and express my gratitude for your contributions to our platform.
+            Your commitment to providing valuable job opportunities has been pivotal in
+            connecting IT job seekers with potential employers, and we greatly appreciate your efforts.</p>
+            <p>We highly value your partnership and the value you bring to our platform.
+                By regularly updating the job portal with fresh job openings, we can enhance the experience for both job seekers and employers.</p>
+            <p>If there are any resources or support that you require from our end to facilitate the timely posting of new job openings,
+                please do not hesitate to reach out to us. We are here to assist you in any way we can.
+            <br>Keep Posted.</p>
+            <span>Best regards,<br>
+            <a href="https://www.linkedin.com/in/prabhatrjpatidar/" target="_blank" style="text-decoration:none; color:inherit;"><b>Admin</b></a></span>
+        </div>
+        <div class="col-1">
+<!--          Column-->
+        </div>
+    </div>
+
+</div>
+<p></p>
+
+{% include 'footer.html' %}
+
+{% endblock %}

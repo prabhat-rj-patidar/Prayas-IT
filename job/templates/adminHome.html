@@ -1,0 +1,64 @@
+{% load static %}
+
+
+{% block body %}
+<style>
+.mydiv{
+ -webkit-box-shadow: 0px 0px 40px 13px rgba(0,0,0,0.71);
+ -moz-box-shadow: 0px 0px 40px 13px rgba(0,0,0,0.71);
+box-shadow: 0px 0px 40px 13px rgba(0,0,0,0.71);
+
+  height: 100px;
+  width: 200px;
+  border-radius: 10px;
+}
+.mydiv:hover{
+scale:1.1;
+color:white;
+background-color: maroon;
+}
+</style>
+{% include 'adminNavigation.html' %}
+<div class="container">
+    <br><br>
+    <h2 class="text-center font-weight-bold" style="color:maroon" >Overview About "Prayas IT" Portal</h2>
+    <br><br>
+
+    <br><br>
+
+    <div class="row">
+        <div class="col-2">
+
+        </div>
+        <div class="col-2 mydiv">
+            <p></p>
+            <h5 class="text-center"><i class="fa-solid fa-user-tie"></i> Total Recruiters</h5>
+            <p class="text-center font-weight-bold" >{{rcount}}</p>
+        </div>
+        <div class="col-2">
+
+        </div>
+
+        <div class="col-2">
+
+        </div>
+        <div class="col-2 mydiv">
+            <p></p>
+            <h5 class="text-center"><i class="fa-solid fa-users"></i> Total Users</h5>
+            <p class="text-center font-weight-bold" >{{scount}}</p>
+        </div>
+        <div class="col-2">
+
+        </div>
+
+    </div>
+
+</div>
+
+<br><br>
+    <br><br>
+
+
+{% include 'footer.html' %}
+
+{% endblock %}

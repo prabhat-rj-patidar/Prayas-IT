@@ -1,0 +1,23 @@
+marquee{
+    background-color:maroon;
+    color:white;
+    font-size:20px;
+    margin-top:5px;
+}
+
+.btn{
+    margin-top: 2%;
+    background-color:maroon;
+    font-weight:600;
+}
+.btn:hover{
+    color:maroon;
+    background-color:white;
+    font-weight:600;
+}
+.form-control{
+    margin-top:5px;
+}
+.note{
+    margin-top: 2%;
+}

@@ -1,0 +1,52 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'adminNavigation.html' %}
+
+<hr style="background-color:maroon;color:white;font-size:20px;margin-top:5px;">
+<marquee behavior="" direction="">Change Recruiter Status</marquee>
+<hr>
+
+
+<form action="" class="container mt-5" method="post">
+    {% csrf_token %}
+
+    <lable><b>Recruiter Name</b></lable>
+    <input type="text" class="form-control" value="{{recruiter.user.first_name}} {{recruiter.user.last_name}}" disabled>
+
+    <p></p>
+    <lable><b>Status (Select from Dropdown)</b></lable>
+    <select class="form-control" name="status" required>
+
+        <option value="Accept">Accept</option>
+        <option value="Reject">Reject</option>
+    </select>
+
+    <p></p>
+    <input type="submit" value="Submit" class="btn btn-primary">
+
+</form>
+<p></p>
+
+
+
+
+
+
+{% include 'footer.html' %}
+
+{% if error == "no" %}
+<script>
+    alert("Status Changed Successfully!!");
+    window.location = ('{% url 'recruiterPending' %}')
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Something Went Wrong!!, Try again.");
+</script>
+{% endif %}
+
+{% endblock %}

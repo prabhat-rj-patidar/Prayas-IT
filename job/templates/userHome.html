@@ -1,0 +1,37 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'userNavigation.html' %}
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-1">
+<!--          Column-->
+        </div>
+        <div class="col-4">
+          <img src="{% static 'images/work.jpg'%}" alt="image" style="height:auto;">
+        </div>
+        <div class="col-6" style="text-align:justify;font-size:20px">
+
+            <span><h3>Hey !! {{request.user.first_name}},</h3></span>
+            <p></p>
+            <p>Greetings and a warm welcome to our "Prayas IT" portal in association with ICSVVU.
+                At "Prayas IT"s, we understand the power of matching exceptional talent with incredible opportunities.
+            We encourage you to seize this moment and apply for the exciting IT job opportunities available on our platform.
+            Remember, every application is a chance to showcase your expertise and open doors to exciting possibilities.</p>
+            <p>Explore the <a href="{% url 'userJobList' %} " target="_blank">Job List</a> to apply for available opportunities. We are here to support you throughout your journey.
+                If you have any questions or need assistance, we are ready to assist you every step of the way. Feel free to contact us.</p>
+            <span>Best regards,<br>
+            <a href="https://www.linkedin.com/in/prabhatrjpatidar/" target="_blank" style="text-decoration:none; color:inherit;"><b>Admin</b></a></span>
+        </div>
+        <div class="col-1">
+<!--          Column-->
+        </div>
+    </div>
+
+</div>
+<p></p>
+{% include 'footer.html' %}
+
+{% endblock %}

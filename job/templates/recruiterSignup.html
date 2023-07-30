@@ -1,0 +1,128 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<script src="{% static 'signup.js' %}"></script>
+<script>
+
+    function passCheck()
+    {
+        if (document.signup.pwd.value!=document.signup.cpd.value)
+        {
+            alert('Please check again the "Entered password" and "Confirm password" !!');
+            document.signup.cpd.focus();
+            return false;
+        }
+        return true;
+    }
+
+</script>
+
+
+<marquee behavior="" direction="">Recruiter Sign-up | Create New Recruiter/Company Account | Register Yourself With Us !!</marquee>
+
+<hr>
+
+<form action="" name="signup" onsubmit="return passCheck();" class="container mt-5" method="post" enctype="multipart/form-data" style="padding-bottom:25px;">
+
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <lable>First Name (Required)</lable>
+            <input type="text" class="form-control" name="firstName" required placeholder="Enter First Name...">
+        </div>
+
+         <div class="form-group col-md-6">
+            <lable>Last Name (Required)</lable>
+            <input type="text" class="form-control" name="lastName" required placeholder="Enter Last Name...">
+        </div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <lable>Contact No. (Required)</lable>
+            <input type="text" class="form-control" name="contNum" required placeholder="Enter 10 digit mobile number..">
+        </div>
+
+         <div class="form-group col-md-6">
+            <lable>Company Name (Required)</lable>
+            <input type="text" class="form-control" name="companyName" required placeholder="Enter Company name..">
+        </div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="form-group col-md-12">
+            <lable>E-mail (Required)</lable>
+            <input type="email" class="form-control" name="email" required placeholder="Enter E-Mail Address...">
+        </div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <lable>Password (Required)</lable>
+            <input type="password" class="form-control" name="pwd" required placeholder="Enter your password">
+        </div>
+
+         <div class="form-group col-md-6">
+            <lable>Confirm Password</lable>
+            <input type="password" class="form-control" name="cpd" required placeholder="Enter again...">
+        </div>
+    </div>
+    <p></p>
+
+<!--    radio button bootstrape-->
+    <div class="row">
+        <div class="form-group col-md-6">
+            <lable>Gender (Required)</lable>
+            <div style="border:1px solid lightgrey; padding:6px ; border-radius: 6px; margin-top:2px;">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" name="gender" required class="custom-control-input" value="Male" id="customRadioInline1">
+                     <lable class="custom-control-lable" for="customRadioInline1" >Male</lable>
+                 </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" name="gender" required class="custom-control-input" value="Female" id="customRadioInline2">
+                    <lable class="custom-control-lable" for="customRadioInline2" >Female</lable>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" name="gender"  required class="custom-control-input" value="Other" id="customRadioInline3">
+                    <lable class="custom-control-lable" for="customRadioInline3" >Other</lable>
+                </div>
+            </div>
+        </div>
+        <p></p>
+        <div class="form-group col-md-6">
+            <lable>Upload Company Logo (Required)</lable>
+            <input type="file" class="form-control" name="img" required>
+        </div>
+    </div>
+    <p></p>
+    <input type="submit" value="Create Account" class="btn btn-primary" style="width:200px;" >
+    <input type="reset" value="Reset" class="btn btn-primary">
+</form>
+
+
+
+
+{% include 'footer.html' %}
+
+{% if error == "no" %}
+<script>
+    alert("Welcome,\nYour Recruiter Account Created Successfully !!\nClick OK to redirect to your Login Page.");
+    window.location = ('{% url 'recruiterLogin' %}')
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Something went wrong !!!, Please Try Again.");
+</script>
+{% endif %}
+
+{% endblock %}

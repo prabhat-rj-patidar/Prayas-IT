@@ -1,0 +1,84 @@
+{% load static %}
+
+
+
+{% block body %}
+
+{% include 'userNavigation.html' %}
+
+<link rel="stylesheet" href="{% static 'login.css' %}" xmlns="http://www.w3.org/1999/html">
+<style>
+    img{border-radius:50%; border: 2px solid #000;}
+    textarea {
+	height:300px;
+    }
+</style>
+
+
+
+<marquee behavior="" direction="">More Details about the job </marquee>
+
+<hr>
+
+<form action="" name="signup"  class="container mt-5" method="post" enctype="multipart/form-data" style="padding-bottom:25px;">
+
+    {% csrf_token %}
+
+
+    <div class="row">
+        <div class="form-group col-md-12">
+            <lable>Job Title</lable>
+            <input type="text" class="form-control" name="jobTitle" value="{{job.title}}">
+        </div>
+
+    </div>
+    <p></p>
+
+
+    <div class="row">
+
+
+        <div class="form-group col-md-9">
+            <lable>Company Name (Required)</lable>
+            <input type="text" class="form-control" name="companyName" value="{{job.company}}">
+        </div>
+
+        <div class="form-group col-md-3">
+            <lable>Company Logo</lable>
+            <br>
+            <img src="{{job.image.url}}" width="50" height="50">
+        </div>
+
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <lable>Salary</lable>
+            <input type="text" class="form-control" name="salary"  value="{{job.salary}}">
+        </div>
+
+         <div class="form-group col-md-6">
+            <lable>Location</lable>
+            <input type="text" class="form-control" name="location" value="{{job.location}}">
+        </div>
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="form-group col-md-12">
+            <lable>Description</lable>
+            <textarea class="form-control" id="resizeArea" name="description">{{job.description}}</textarea>
+        </div>
+    </div>
+
+    <p></p>
+
+    <input type="button" value="Back to Job List" onclick="history.back()" class="btn btn-primary">
+    <p></p>
+
+</form>
+
+
+{% include 'footer.html' %}
+
+
+{% endblock %}

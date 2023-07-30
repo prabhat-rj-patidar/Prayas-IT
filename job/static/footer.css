@@ -1,0 +1,16 @@
+#footerBtn{
+    margin-top: 2%;
+    background-color:white;
+    font-weight:600;
+    color:maroon;
+
+}
+#footerBtn:hover{
+    color:white;
+    background-color:maroon;
+    font-weight:600;
+    border-color: white;
+    scale:1.2;
+}
+
+

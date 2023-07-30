@@ -1,0 +1,109 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'navigation.html' %}
+<div class="container-fluid">
+    <img src="{% static 'images/homepageMain.jpg'%}" alt="">
+</div>
+
+<div class="container" id="placedContainer">
+    <h1 class="text-center text-white" id="placedHeading">🎉🎉Our Placed Students...🏆🏆</h1>
+
+    <div class="row">
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedMale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedMale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedMale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedFemale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedMale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedFemale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+<!--        row 2 -->
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedFemale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedMale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedFemale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedFemale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedMale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+            <img class="placedProfile" src="{% static 'images/placedFemale.jpeg'%}" alt="">
+            <div class="placedDetails">
+                <p>Student Name <br> Company Name</p>
+            </div>
+        </div>
+        <!--    More placed list profile Here...    -->
+    </div>
+    <p style="display:flex;align-content:center;justify-content:center;padding-bottom:20px;padding-top:10px;">
+        <a href="#" style="color:white;font-size:20px; text-decoration:none;">🤟🏽👉🏽 Know More...</a>
+    </p>
+
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

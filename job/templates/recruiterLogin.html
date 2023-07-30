@@ -1,0 +1,52 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<marquee behavior="" direction="">Recruiter Login</marquee>
+
+<hr>
+
+<form action="" class="container mt-5" method="post">
+    {% csrf_token %}
+
+    <lable><b>Recruiter User Name</b></lable>
+    <input type="text" class="form-control" name="uname" placeholder="Enter Username... (Only for recruiter)" required>
+
+
+    <lable><b>Password</b></lable>
+    <input type="password" class="form-control" name="pwd" placeholder="Enter Your Password..." required>
+
+    <input type="submit" value="Submit" class="btn btn-primary">
+<!--    button for registration ,, copied from user login page -->
+    <a href="{% url 'recruiterSignup' %}" class="btn btn-primary">Register as a Recruiter</a>
+    <p class="note"> <sup>*</sup>Both fields are required.</p>
+    <h6><sup>*</sup>If you have forgotten your current login password, then please contact to the Admin to generate new one.</h6>
+    <p></p>
+</form>
+
+{% include 'footer.html' %}
+
+{% if error == "no" %}
+<script>
+    alert("Welcome,\nLogin Successful !!.");
+    window.location = ('{% url 'recruiterHome' %}')
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Invalid login credentials, Please Try Again !!");
+</script>
+{% endif %}
+
+{% if error == "nott" %}
+<script>
+    alert("Your account verification is pending to us!! Please try again later.");
+</script>
+{% endif %}
+
+{% endblock %}

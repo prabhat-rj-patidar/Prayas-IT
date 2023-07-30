@@ -1,0 +1,48 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<marquee behavior="" direction="">User Login</marquee>
+
+<hr>
+
+<form action="" class="container mt-5" method="post">
+    {% csrf_token %}
+
+    <lable><b>Candidate Email ID</b></lable>
+    <input type="email" class="form-control" name="uname" placeholder="Enter E-Mail ID... (Only for candidates)" required>
+
+    <p></p>
+
+    <lable><b>Password</b></lable>
+    <input type="password" class="form-control" name="pwd" placeholder="Enter Your Password..." required>
+
+    <input type="submit" value="Login" class="btn btn-primary">
+    <a href="{% url 'userSignup' %}" class="btn btn-primary">Create an Account</a>
+
+    <p class="note"> <sup>*</sup>Both fields are required.</p>
+
+    <h6><sup>*</sup>If you have forgotten your current login password, then please contact to the Admin to generate new one.</h6>
+    <p></p>
+</form>
+
+{% include 'footer.html' %}
+
+{% if error == "no" %}
+<script>
+    alert("Welcome,\nLogin Successful !!.");
+    window.location = ('{% url 'userHome' %}')
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Invalid login credentials, Please Try Again !!");
+</script>
+{% endif %}
+
+{% endblock %}

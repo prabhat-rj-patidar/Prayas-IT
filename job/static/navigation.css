@@ -1,0 +1,51 @@
+
+.tagline{
+    font-size:20px;
+}
+.nav-link{
+    color:white;
+    margin-right:50px;
+ }
+.nav-link:hover{
+    color:maroon;
+    background-color:white;
+    border-radius:15px
+}
+.container-fluid{
+    margin-top:1%;
+}
+.container-fluid img{
+    width:100%;
+    height:500px;
+}
+
+#placedContainer{
+    background-color:maroon;
+    height:auto;
+    margin-top:5%;
+    margin-bottom:5%;
+    max-width:90%;
+}
+
+#placedHeading{
+    padding-top:20px;
+}
+.placedProfile{
+    width:130px;
+    height: 130px;
+    border-radius:50%;
+    margin-top: 30px;
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.placedDetails{
+    margin-top:5px;
+    text-align:center;
+    color:white;
+    background:rgba(0,0,0,0.5);
+    top:0;
+    border-radius:10px;
+}
+

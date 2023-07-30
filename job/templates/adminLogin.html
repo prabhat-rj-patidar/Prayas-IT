@@ -1,0 +1,43 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<marquee behavior="" direction="">Admin Login</marquee>
+
+<hr>
+
+<form action="" class="container mt-5" method="post">
+    {% csrf_token %}
+    
+    <lable><b>Admin User Name</b></lable>
+    <input type="text" class="form-control" name="uname" placeholder="Enter Usernme... (Only for admin)" required>
+
+
+    <lable><b>Password</b></lable>
+    <input type="password" class="form-control" name="pwd" placeholder="Enter Your Password..." required>
+
+    <input type="submit" value="Submit" class="btn btn-primary">
+
+    <p class="note"> <sup>*</sup>Both fields are required.</p>
+</form>
+
+{% include 'footer.html' %}
+
+{% if error == "no" %}
+<script>
+    alert("Welcome,\nLogin Successful !!.");
+    window.location = ('{% url 'adminHome' %}')
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Invalid login credentials, Please Try Again!!");
+</script>
+{% endif %}
+
+{% endblock %}
